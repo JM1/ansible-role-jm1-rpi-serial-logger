@@ -1,0 +1,21 @@
+galaxy_info:
+  role_name: rpi_serial_logger
+  author: Jakob Meng
+  description: Setup serial console logging on Raspberry Pi
+  company: Hochschule Bonn-Rhein-Sieg
+  license: license (GPLv3)
+
+  min_ansible_version: 2.7
+
+  platforms:
+  # Ref.: https://galaxy.ansible.com/api/v1/platforms/
+  - name: Ubuntu
+    versions:
+    - focal
+
+  galaxy_tags:
+  - development
+  - system
+
+dependencies:
+- jm1.common

@@ -1,0 +1,8 @@
+---
+# NOTE: Update README.md if you add, remove or change any variable here!
+
+__baud: '9600'
+
+__log: '/var/log/{{ tty|basename }}.log'
+
+__tty: '/dev/ttyUSB0'

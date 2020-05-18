@@ -1,0 +1,16 @@
+# (2020) Jakob Meng
+[Unit]
+Description=Log serial console to file
+
+[Service]
+Type=simple
+# Escaped '%' characters with another '%' because it is a systemd keyword
+ExecStart=/bin/sh -c 'stty --file {{ tty }} {{ baud }} && nohup sh -c "cat {{ tty }} > \"{{ log }}.$(date +%%Y%%m%%d%%H%%M%%S)\""'
+
+# Restart daily
+Restart=always
+RestartSec=0s
+RuntimeMaxSec=86400
+
+[Install]
+WantedBy=multi-user.target
