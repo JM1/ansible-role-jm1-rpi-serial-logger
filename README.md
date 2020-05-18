@@ -32,11 +32,11 @@ can be accomplished with Ansible role [`jm1.rpi_cmdline`](https://galaxy.ansible
 
 ## Variables
 
-| Name   | Default value                     | Required | Description                                                                   |
-| ------ | --------------------------------- | -------- | ----------------------------------------------------------------------------- |
-| `baud` | 9600                              | no       | Serial tty input and output speeds in bauds                                   |
-| `log`  | `/var/log/{{ tty|basename }}.log` | no       | Absolute path to log file. A timestamp is automatically appended to that path |
-| `tty`  | `/dev/ttyUSB0`                    | no       | Serial tty device                                                             |
+| Name   | Default value                      | Required | Description                                                                   |
+| ------ | ---------------------------------- | -------- | ----------------------------------------------------------------------------- |
+| `baud` | 9600                               | no       | Serial tty input and output speeds in bauds                                   |
+| `log`  | `/var/log/{{ tty\|basename }}.log` | no       | Absolute path to log file. A timestamp is automatically appended to that path |
+| `tty`  | `/dev/ttyUSB0`                     | no       | Serial tty device                                                             |
 
 ## Dependencies
 
