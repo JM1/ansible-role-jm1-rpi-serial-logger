@@ -67,7 +67,7 @@
 
 - name: Create logging service
   template:
-    src: "{{ distribution_codename }}/etc/systemd/system/rpi-serial-logger.service.j2"
+    src: "{{ ansible_distribution }}-{{ ansible_distribution_version }}/etc/systemd/system/rpi-serial-logger.service.j2"
     dest: /etc/systemd/system/rpi-serial-logger.service
     owner: root
     group: root

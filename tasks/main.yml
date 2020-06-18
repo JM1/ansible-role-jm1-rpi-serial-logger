@@ -1,5 +1,13 @@
 ---
-- include_vars: "{{ distribution_codename }}.yml"
+- name: Collect distribution facts
+  setup:
+    gather_subset:
+      - min
 
-- import_tasks: setup-Ubuntu.yml
+- name: Load variables specific to Ubuntu and its derivatives, e.g. Ubuntu 20.04 LTS (Focal Fossa)
+  include_vars: '{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml'
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Load tasks specific to OS
+  include_tasks: 'setup-{{ ansible_distribution }}.yml'
   when: ansible_distribution == 'Ubuntu'

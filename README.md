@@ -40,9 +40,7 @@ can be accomplished with Ansible role [`jm1.rpi_cmdline`](https://galaxy.ansible
 
 ## Dependencies
 
-| Name         | Description                                                   |
-| ------------ | ------------------------------------------------------------- |
-| `jm1.common` | Sets common facts and variables, e.g. `distribution_codename` |
+None.
 
 ## Example Playbook
 
