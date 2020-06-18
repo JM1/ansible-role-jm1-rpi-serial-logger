@@ -3,6 +3,6 @@
 
 __baud: '9600'
 
-__log: '/var/log/{{ tty|basename }}.log'
+__log: '/var/log/{{ tty|default(__tty, true)|basename }}.log'
 
 __tty: '/dev/ttyUSB0'

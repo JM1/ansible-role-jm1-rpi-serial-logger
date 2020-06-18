@@ -14,12 +14,6 @@
     tty: "{{ __tty }}"
   when: tty|default(None) == None
 
-- name: Cleanup role default variables
-  set_fact:
-    __baud: !!null
-    __log: !!null
-    __tty: !!null
-
 - name: Fail if required vars are not set
   fail:
   when: >
