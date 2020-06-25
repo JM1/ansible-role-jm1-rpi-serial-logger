@@ -1,19 +1,4 @@
 ---
-- name: Set baud variable to default value
-  set_fact:
-    baud: "{{ __baud }}"
-  when: baud|default(None) == None
-
-- name: Set log variable to default value
-  set_fact:
-    log: "{{ __log }}"
-  when: log|default(None) == None
-
-- name: Set tty variable to default value
-  set_fact:
-    tty: "{{ __tty }}"
-  when: tty|default(None) == None
-
 - name: Fail if required vars are not set
   fail:
   when: >
@@ -61,7 +46,7 @@
 
 - name: Create logging service
   template:
-    src: "{{ ansible_distribution }}-{{ ansible_distribution_version }}/etc/systemd/system/rpi-serial-logger.service.j2"
+    src: "{{ distribution_id|join('-') }}/etc/systemd/system/rpi-serial-logger.service.j2"
     dest: /etc/systemd/system/rpi-serial-logger.service
     owner: root
     group: root
@@ -76,9 +61,3 @@
     masked: no
     state: restarted
   when: template_result.changed == True
-
-- name: Cleanup role variables
-  set_fact:
-    log: !!null
-    baud: !!null
-    tty: !!null

@@ -1,1 +1,8 @@
 ---
+# NOTE: Update README.md if you add, remove or change any variable here!
+
+baud: '9600'
+
+log: "/var/log/{{ tty|default('tty', true)|basename }}.log"
+
+tty: '/dev/ttyUSB0'
