@@ -1,4 +1,4 @@
-# Ansible Role: jm1.rpi_serial_logger
+# Ansible Role `jm1.rpi_serial_logger`
 
 This role helps to setup serial console logging on Raspberry Pi.
 
@@ -40,7 +40,7 @@ can be accomplished with Ansible role [`jm1.rpi_cmdline`](https://galaxy.ansible
 
 ## Dependencies
 
-None.
+TODO.
 
 ## Example Playbook
 
@@ -58,7 +58,9 @@ For instructions on how to run Ansible playbooks have look at Ansible's
 
 ## License
 
-GPL3
+GNU General Public License v3.0 or later
+
+See [LICENCE.md](LICENSE.md) to see the full text.
 
 ## Author
 
