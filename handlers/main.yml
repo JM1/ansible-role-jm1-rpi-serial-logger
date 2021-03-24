@@ -1,0 +1,8 @@
+---
+- name: Enable and start logging service and ensure it is not masked
+  systemd:
+    name: rpi-serial-logger.service
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    state: restarted

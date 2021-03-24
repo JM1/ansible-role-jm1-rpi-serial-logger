@@ -10,26 +10,26 @@
   pause:
     prompt: |
       Make sure you have serial input disabled in U-Boot! Do you want to reboot now and disable it manually? (y/n)
-      
+
       How To
       ------
       Establish a serial connection from your host to Raspberry Pi, connect a usb keyboard to it, reboot and hit any key
       during early boot to stop autoboot, as suggested by U-Boot. On U-Boot shell type on your usb keyboard:
-      
+
         env print
         env print stdin
         setenv stdin serial
         saveenv
         reset
-      
+
       Thats it!
-      
+
       You might also want to disable (serial-)getty on your host's side. To do so, replace 'ttyS0' with your tty and run
       as root:
-      
+
         systemctl stop serial-getty@ttyS0.service
         systemctl mask serial-getty@ttyS0.service
-      
+
       Explaination:
       On Raspberry Pis with U-Boot, e.g. Ubuntu 20.04 LTS for Raspberry Pi 2B and later, early during boot a prompt
       "Hit any key to stop autoboot" is printed by U-Boot to serial console. If any character is received at serial
@@ -51,13 +51,4 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
-  register: template_result
-
-- name: Enable and start logging service and ensure it is not masked
-  systemd:
-    name: rpi-serial-logger.service
-    daemon_reload: yes
-    enabled: yes
-    masked: no
-    state: restarted
-  when: template_result.changed == True
+  notify: 'Enable and start logging service and ensure it is not masked'
