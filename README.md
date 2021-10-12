@@ -40,17 +40,24 @@ can be accomplished with Ansible role [`jm1.rpi_cmdline`](https://galaxy.ansible
 
 ## Dependencies
 
-TODO.
+None.
 
 ## Example Playbook
 
-```
+```yml
 - hosts: all
-  tasks:
-    - import_role:
-        name: jm1.rpi_serial_logger
-      vars:
-        tty: '/dev/ttyS0'
+  vars:
+    # Variables are listed here for convenience and illustration.
+    # In a production setup, variables would be defined e.g. in
+    # group_vars and/or host_vars of an Ansible inventory.
+    # Ref.:
+    # https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
+    # https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+    tty: '/dev/ttyS0'
+  roles:
+  - name: Setup serial console logging on Raspberry Pi
+    role: jm1.rpi_serial_logger
+    tags: ["jm1.rpi_serial_logger"]
 ```
 
 For instructions on how to run Ansible playbooks have look at Ansible's
